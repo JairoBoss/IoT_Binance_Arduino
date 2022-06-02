@@ -1,7 +1,7 @@
 const Movimiento = require("../model/movimiento.model");
 
 exports.create = async (req, res) => {
-  if (!req.body.Moneda) {
+  if (!req.body.moneda) {
     return res
       .status(400)
       .send({ error: "El movimiento debe de contener una moneda" });
