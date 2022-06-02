@@ -1,0 +1,44 @@
+ #include <LiquidCrystal.h>    // importa libreria
+#include <Keypad.h>
+
+LiquidCrystal lcd(13, 12, 11, 10, 9, 8);  // pines RS, E, D4, D5, D6, D7 de modulo 1602A
+const byte filas = 4; 
+const byte columnas = 4;
+byte pinesFilas[]  = {7,6,5,4};
+byte pinesColumnas[] = {3,2,1,0};
+char teclas[4][4] = {{'1','2','3','A'},
+                     {'4','5','6','B'},
+                     {'7','8','9','C'},
+                     {'*','0','#','D'}};
+Keypad teclado1 = Keypad( makeKeymap(teclas), pinesFilas, pinesColumnas, filas, columnas);  
+void setup() {
+  Serial.begin(9600);   
+  lcd.begin(16, 2);
+}
+void loop() {
+  //Verifica si alguna tecla fue presionada
+  char tecla_presionada = teclado1.getKey();
+  
+  //Monitor Serial
+  if (tecla_presionada)
+  {    
+    Serial.print(tecla_presionada);
+    
+  } 
+  int charcount;
+  boolean secondline;
+  if (Serial.available()) {
+    delay(200);
+    lcd.clear();
+    charcount = 0;
+    secondline = false;
+    while (Serial.available() > 0) {
+      if (charcount > 15 && secondline == false ) {
+        lcd.setCursor(0,1);
+        secondline = true;
+      }
+      lcd.write(Serial.read());
+      charcount++;
+    }
+  }
+}
