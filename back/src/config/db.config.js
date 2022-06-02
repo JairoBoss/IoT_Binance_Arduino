@@ -1,4 +1,4 @@
 require("dotenv").config();
 module.exports = {
-  url: `:${process.env.MONGO_CLUSTER}`,
+  url: `${process.env.MONGO_CLUSTER}`,
 };

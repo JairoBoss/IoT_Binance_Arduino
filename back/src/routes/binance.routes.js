@@ -1,6 +1,6 @@
 module.exports = (app) => {
   const router = require("express").Router();
-  const binance = require("./src/config/binance.config");
+  const binance = require("../config/binance.config");
 
   router.get("/btc-usdt", (req, res) => {
     binance.bookTickers("BTCUSDT", (error, ticker) => {
