@@ -14,10 +14,11 @@ const MercadosScreen = () => {
   const [loading, setLoading] = useState(false);
   const [btcPrice, setBTCPrice] = useState();
   const [ethPrice, setETHPrice] = useState();
+  const [valor, setValor] = useState(1);
 
   useEffect(() => {
     obtenerPrecios();
-  }, []);
+  }, [valor]);
 
   const obtenerPrecios = async () => {
     setLoading(true);
@@ -27,6 +28,7 @@ const MercadosScreen = () => {
       setBTCPrice(btcPriceReal);
       console.log(btcPriceReal);
       setETHPrice(ethPriceReal);
+      console.log(ethPriceReal);
     } catch (e) {
       console.log(e);
     } finally {
@@ -49,7 +51,7 @@ const MercadosScreen = () => {
         <Text>{JSON.stringify(btcPrice)}</Text>
         <Text>{JSON.stringify(ethPrice)}</Text>
         <Button
-          onPress={() => obtenerPrecios}
+          onPress={() => setValor((valor + 1))}
           title="Precios"
           color="#841584"
         />

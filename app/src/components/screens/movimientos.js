@@ -52,6 +52,7 @@ const MovimientosScreen = () => {
                   textAlign: "center",
                   marginTop: "20%",
                 }}
+                key={index}
               >
                 {JSON.stringify(element)}
               </Text>
@@ -60,7 +61,7 @@ const MovimientosScreen = () => {
           <Button
             onPress={() => obtenerMovimientos()}
             title="Movimientos"
-            color="#841584"            
+            color="#841584"
           />
         </ScrollView>
       </SafeAreaView>
