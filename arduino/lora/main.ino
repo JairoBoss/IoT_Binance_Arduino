@@ -62,7 +62,7 @@ void setup() {
   delay(2000);
   tft.clear();
   digitalWrite(LED1, LOW);
-  wifiMulti.addAP("*", "*");
+  wifiMulti.addAP("Ponciano", "ladesiemprecrack1");
 }
 
 void loop() {
