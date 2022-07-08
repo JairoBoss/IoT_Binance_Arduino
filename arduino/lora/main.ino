@@ -62,14 +62,14 @@ void setup() {
   delay(2000);
   tft.clear();
   digitalWrite(LED1, LOW);
-  wifiMulti.addAP("Ponciano", "ladesiemprecrack1");
+  wifiMulti.addAP("network", "password");
 }
 
 void loop() {
  if ((wifiMulti.run() == WL_CONNECTED)) {
     HTTPClient http;
     USE_SERIAL.print("[HTTP] begin...\n");
-    http.begin("https://microapisoftware.herokuapp.com/api/movimiento/ultimo-movimiento");    
+    http.begin("url_api");    
     int httpCode = http.GET();
     String payload = http.getString();
     char buf[1000];
@@ -93,7 +93,7 @@ void loop() {
    if ((wifiMulti.run() == WL_CONNECTED)) {
     HTTPClient http;
     USE_SERIAL.print("[HTTP] begin...\n");
-    http.begin("https://microapisoftware.herokuapp.com/api/movimiento/ultimo-movimiento");
+    http.begin("url_api");
     int httpCode = http.GET();
     String payload = http.getString();
     char buf[1000];
@@ -110,7 +110,7 @@ void loop() {
 if ((wifiMulti.run() == WL_CONNECTED)) {
     HTTPClient http;
     USE_SERIAL.print("[HTTP] begin...\n");
-    http.begin("https://microapisoftware.herokuapp.com/api/binance/btc-usdt");    
+    http.begin("url_api");    
     int httpCode = http.GET();
     String payload = http.getString();
     char buf[1000];
@@ -134,7 +134,7 @@ if ((wifiMulti.run() == WL_CONNECTED)) {
    if ((wifiMulti.run() == WL_CONNECTED)) {
     HTTPClient http;
     USE_SERIAL.print("[HTTP] begin...\n");
-    http.begin("https://microapisoftware.herokuapp.com/api/binance/btc-usdt");
+    http.begin("url_api");
     int httpCode = http.GET();
     String payload = http.getString();
     char buf[1000];
@@ -151,7 +151,7 @@ if ((wifiMulti.run() == WL_CONNECTED)) {
   if ((wifiMulti.run() == WL_CONNECTED)) {
     HTTPClient http;
     USE_SERIAL.print("[HTTP] begin...\n");
-    http.begin("https://microapisoftware.herokuapp.com/api/binance/eth-usdt");    
+    http.begin("url_api");    
     int httpCode = http.GET();
     String payload = http.getString();
     char buf[1000];
@@ -175,7 +175,7 @@ if ((wifiMulti.run() == WL_CONNECTED)) {
    if ((wifiMulti.run() == WL_CONNECTED)) {
     HTTPClient http;
     USE_SERIAL.print("[HTTP] begin...\n");
-    http.begin("https://microapisoftware.herokuapp.com/api/binance/eth-usdt");
+    http.begin("url_api");
     int httpCode = http.GET();
     String payload = http.getString();
     char buf[1000];
